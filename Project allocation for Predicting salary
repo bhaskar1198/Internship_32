@@ -1,0 +1,17 @@
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df=pd.read_csv('https://raw.githubusercontent.com/dsrscientist/dataset3/main/Salaries.csv')
+print(df)
+
+plt.scatter(df['rank'], df['discipline'],df['yrs.service'],df['salary'])
+plt.show()
+
+from sklearn.linear_model import LinearRegression
+
+model=LinearRegression()
+model.fit(df[['yrs.service']],df[['salary']])
+print(model.predict([[60]]))
+      
